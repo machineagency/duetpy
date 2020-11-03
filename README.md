@@ -19,16 +19,24 @@ If you do not want to edit the source, simply invoke:
 pip3 install .
 ```
 
+## Connecting to your Duet Controller
+
+### Over HTTP
+#### On a Closed Connection
+This is the most failure-proof way to connect to the Duet through the HTTP interface.
+To connect, you will need to know the Duet's IP Address. The resulting setup looks like this:
+<img src="https://github.com/machineagency/duetpy/blob/main/docs/pics/jubilee_duet3_closed_network_connection.png">
+
+
 ## A Minimal Example
 ```python
 
 from duetpy.duet import Duet
 
-jubilee = Duet()
-
+jubilee = Duet(address="192.168.1.2")
 jubilee.home_all()
 
-# These moves will be queued into the machine's buffer
+# These moves will be queued into the machine's buffer resulting in smooth moves.
 jubilee.move_xyz_absolute(z=20)
 jubilee.move_xyz_absolute(x=10, y=10)
 jubilee.move_xyz_relative(x=10)
@@ -36,7 +44,7 @@ jubilee.move_xyz_relative(y=10)
 jubilee.move_xyz_relative(x=10)
 jubilee.move_xyz_relative(y=10)
 jubilee.move_xyz_absolute(150, 150, wait=True)
-# Asserting a wait ensures that the machine will finish moving before any additional code is executed.
+# Waiting ensures that the machine will finish moving before any additional code is executed.
 ```
 
 ## Warnings/Recommendations
