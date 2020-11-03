@@ -25,7 +25,7 @@ pip3 install .
 #### On a Closed Connection
 This is the most failure-proof way to connect to the Duet through the HTTP interface.
 To connect, you will need to know the Duet's IP Address. The resulting setup looks like this:
-<img src="https://github.com/machineagency/duetpy/blob/main/docs/pics/jubilee_duet3_closed_network_connection.png">
+<img src="https://github.com/machineagency/duetpy/blob/main/docs/pics/jubilee_duet2_closed_network_connection.png">
 
 
 ## A Minimal Example
